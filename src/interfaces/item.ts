@@ -9,6 +9,9 @@ export interface IProduct {
     picture: string;
     condition: string;
     free_shipping: boolean;
+    city_name: string;
+    sold_quantity?: number;
+    description?: string;
 }
 
 interface IAuthor {
