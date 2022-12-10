@@ -3,7 +3,7 @@ import { Attribute, ResultElement, IProduct, ISearchResult, IProductResult } fro
 //TODO Categories
 
 export const search = async (data: ResultElement[]): Promise<ISearchResult> => {
-    const items = data.map(({ id, title, price, thumbnail, attributes, shipping, category_id, currency_id }) => {
+    const items = data.map(({ id, title, price, thumbnail, attributes, shipping, category_id, currency_id, address }) => {
         const [amount, decimals = '0'] = price.toString().split('.');
 
         return <IProduct>{
@@ -17,7 +17,8 @@ export const search = async (data: ResultElement[]): Promise<ISearchResult> => {
             picture: thumbnail,
             condition: attributes ? attributes.find((cond: Attribute) => cond.id === 'ITEM_CONDITION')?.value_name : 'Unknown',
             free_shipping: shipping.free_shipping,
-            category_id
+            category_id,
+            city_name: address.city_name
         };
     });
 
