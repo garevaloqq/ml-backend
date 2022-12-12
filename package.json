@@ -4,9 +4,8 @@
   "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf build/ && tsc",
     "start": "set NODE_ENV=dev && nodemon src/server.ts",
-    "test": "jest \".*test.ts\""
+    "test": "set NODE_ENV=test && jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
   },
   "dependencies": {
     "axios": "^1.2.1",
@@ -22,6 +21,7 @@
     "@types/express": "^4.17.13",
     "@types/jest": "^29.2.4",
     "@types/mocha": "^10.0.1",
+    "@types/supertest": "^2.0.12",
     "jest": "^29.3.1",
     "supertest": "^6.2.4",
     "ts-jest": "^29.0.3",

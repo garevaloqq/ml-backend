@@ -1,7 +1,7 @@
+import { Response, Request, NextFunction } from 'express';
+import axios from 'axios';
 import { DescriptionResult, Result, ResultElement } from '@interfaces/index';
 import { mapResponse } from '../utils';
-import axios from 'axios';
-import { Response, Request, NextFunction } from 'express';
 import mlApi from '../api/mlApi';
 
 const getOne = async (req: Request, res: Response, next: NextFunction) => {

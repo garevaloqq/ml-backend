@@ -3,7 +3,7 @@ import { Attribute, ResultElement, IProduct, ISearchResult, IProductResult } fro
 //TODO Categories
 
 export const search = async (data: ResultElement[]): Promise<ISearchResult> => {
-    const items = data.map(({ id, title, price, thumbnail, attributes, shipping, category_id, currency_id, address }) => {
+    const items = data.splice(0, 4).map(({ id, title, price, thumbnail, attributes, shipping, category_id, currency_id, address }) => {
         const [amount, decimals = '0'] = price.toString().split('.');
 
         return <IProduct>{
