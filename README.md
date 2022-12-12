@@ -31,7 +31,7 @@ Ejecuta la aplicación en el modo de desarrollo.<br /> También verás cualquier
 ## Test
 ```bash
 # unit tests
-$ npm run test
+$ yarn run test
 # test coverage
-$ npm run test:cov
+$ yarn run test:cov
 ```
