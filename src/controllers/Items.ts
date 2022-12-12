@@ -5,6 +5,17 @@ import { toProduct, toListProduct } from '../utils/mapper';
 import { ResultElement } from '@interfaces/ml-api';
 import { findMostFrequent } from '../utils/util';
 
+/**
+ * Get one product by ID
+ * @router GET /api/items/:id
+ * @group get product by id
+ * @param {string} search.param - id
+ * @returns { IProductResult }
+ *
+ * @returns {Error.model} 400 - (Bad Request)
+ * @returns {Error.model} 500 - (Internal error)
+ * }
+ */
 const getProduct = async (req: Request, res: Response, next: NextFunction) => {
     const { id = '' } = req.params;
 
@@ -25,6 +36,17 @@ const getProduct = async (req: Request, res: Response, next: NextFunction) => {
     }
 };
 
+/**
+ * Get all products by query
+ * @router GET /api/items?q:query
+ * @group get products by query
+ * @param {string} search.query - q
+ * @returns { IProductResult[] }
+ *
+ * @returns {Error.model} 400 - (Bad Request)
+ * @returns {Error.model} 500 - (Internal error)
+ * }
+ */
 const searchProducts = async (req: Request, res: Response, next: NextFunction) => {
     const { q = '' } = req.query;
 
