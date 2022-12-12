@@ -6,7 +6,7 @@
   "scripts": {
     "start": "set NODE_ENV=dev && nodemon src/server.ts",
     "test": "set NODE_ENV=test && jest",
-    "test:cov": "set NODE_ENV=test && jest --coverage"
+    "test:cov": "jest --coverage --watchAll=false"
   },
   "dependencies": {
     "axios": "^1.2.1",

@@ -6,11 +6,11 @@ const app: Application = express();
 
 app.use((req: Request, res: Response, next: NextFunction) => {
     /** Log the Request */
-    Logging.info(`Incomming => Method: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`);
+    //Logging.info(`Incomming => Method: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}]`);
 
     res.on('finish', () => {
         /** Log the Response */
-        Logging.info(`Incomming => Method: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}] - STATUS: [${res.statusCode}]`);
+        //Logging.info(`Incomming => Method: [${req.method}] - URL: [${req.url}] - IP: [${req.socket.remoteAddress}] - STATUS: [${res.statusCode}]`);
     });
 
     next();
