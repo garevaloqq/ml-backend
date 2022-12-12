@@ -1,8 +1,18 @@
 import { Attribute, ResultElement, IProduct, ISearchResult, IProductResult } from '../interfaces';
+import { author } from './constants';
+import { findProductCategory } from './mlService';
 
 //TODO Categories
 
-export const search = async (data: ResultElement[]): Promise<ISearchResult> => {
+export const toListProduct = async (data: ResultElement[], categories: string[]): Promise<ISearchResult> => {
+    if (data.length === 0) {
+        return {
+            author,
+            categories,
+            items: []
+        };
+    }
+
     const items = data.splice(0, 4).map(({ id, title, price, thumbnail, attributes, shipping, category_id, currency_id, address }) => {
         const [amount, decimals = '0'] = price.toString().split('.');
 
@@ -22,25 +32,19 @@ export const search = async (data: ResultElement[]): Promise<ISearchResult> => {
         };
     });
 
-
     return {
-        author: {
-            name: 'Geider',
-            lastName: 'Arevalo Quintana'
-        },
-        categories: ['Uno'],
+        author,
+        categories,
         items
     };
 };
 
-export const getOne = async ({ id, title, price, thumbnail, attributes, shipping, sold_quantity }: ResultElement, description: string): Promise<IProductResult> => {
+export const toProduct = async ({ id, title, price, thumbnail, attributes, shipping, sold_quantity }: ResultElement, description: string, categories: string[]): Promise<IProductResult> => {
     const [amount, decimals = '0'] = price.toString().split('.');
 
     return {
-        author: {
-            name: 'Geider',
-            lastName: 'Arevalo Quintana'
-        },
+        author,
+        categories,
         item: {
             id,
             title,

@@ -9,7 +9,8 @@ export interface IProduct {
     picture: string;
     condition: string;
     free_shipping: boolean;
-    city_name: string;
+    city_name?: string;
+    category_id?: string;
     sold_quantity?: number;
     description?: string;
 }
@@ -25,8 +26,10 @@ export interface ISearchResult {
     items: IProduct[];
 }
 
+//TODO: Revisar IProduct
 export interface IProductResult {
     author: IAuthor;
+    categories: string[];
     item: {
         id: string;
         title: string;
